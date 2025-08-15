@@ -1,89 +1,212 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title data-lang-key="pageTitle">Catálogo de Livros | As Melhores Recomendações</title>
+    <meta name="description" content="Explore nosso catálogo com as melhores recomendações de livros de ficção, não-ficção e negócios. Encontre sua próxima leitura e compre na Amazon." data-lang-key="metaDescription">
+    <meta name="keywords" content="livros, recomendações de livros, comprar livros, afiliado amazon, melhores livros">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.1.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.1.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.1.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <link rel="stylesheet" href="style.css">
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Catálogo de Livros Recomendados",
+      "description": "Uma seleção curada dos melhores livros para comprar online.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Book",
+            "name": "O Poder do Hábito",
+            "author": {
+              "@type": "Person",
+              "name": "Charles Duhigg"
+            },
+            "isbn": "978-8539004119",
+            "url": "SEU_LINK_DE_AFILIADO_AQUI_PARA_ESTE_LIVRO",
+            "image": "imagens/capa-poder-habito.jpg",
+            "offers": {
+              "@type": "Offer",
+              "seller": {
+                "@type": "Organization",
+                "name": "Amazon"
+              },
+              "priceCurrency": "BRL",
+              "availability": "https://schema.org/InStock"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Book",
+            "name": "Mindset: A Nova Psicologia do Sucesso",
+            "author": {
+              "@type": "Person",
+              "name": "Carol S. Dweck"
+            },
+            "isbn": "978-8547000240",
+            "url": "SEU_LINK_DE_AFILIADO_AQUI_PARA_ESTE_LIVRO",
+            "image": "imagens/capa-mindset.jpg",
+            "offers": {
+              "@type": "Offer",
+              "seller": {
+                "@type": "Organization",
+                "name": "Amazon"
+              },
+              "priceCurrency": "BRL",
+              "availability": "https://schema.org/InStock"
+            }
+          }
         }
-      });
+      ]
+    }
     </script>
-  </body>
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo" data-lang-key="logo">Leitura Essencial</h1>
+            <div class="header-right">
+                <nav>
+                    <ul>
+                        <li><a href="#catalogo" data-lang-key="navCatalog">Catálogo</a></li>
+                        <li><a href="#faq" data-lang-key="navFaq">FAQ</a></li>
+                    </ul>
+                </nav>
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="lang-switcher">
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h2 data-lang-key="heroTitle">Explore Mundos, Descubra Histórias.</h2>
+                <p data-lang-key="heroSubtitle">Sua jornada literária começa aqui. Selecionamos os melhores títulos para inspirar, ensinar e entreter.</p>
+            </div>
+        </section>
+
+        <section class="adsense-block">
+            <div class="container">
+                <div class="ad-placeholder">
+                    <p>Espaço para Google AdSense (728x90)</p>
+                    </div>
+            </div>
+        </section>
+
+        <section id="catalogo" class="container">
+            <h3 class="section-title" data-lang-key="catalogTitle">Nosso Catálogo</h3>
+            
+            <div class="book-grid">
+                
+                <article class="book-card">
+                    <img src="https://via.placeholder.com/300x450/CCCCCC/FFFFFF?text=Capa+do+Livro" alt="Capa do livro O Poder do Hábito" loading="lazy">
+                    <div class="book-info">
+                        <h4>O Poder do Hábito</h4>
+                        <p class="author" data-lang-key="author">por Charles Duhigg</p>
+                        <p class="description" data-lang-key="book1Desc">Um livro transformador que explora a ciência por trás da formação de hábitos e como podemos mudá-los.</p>
+                        <a href="SEU_LINK_DE_AFILIADO_AQUI" class="cta-button" target="_blank" rel="noopener sponsored">
+                            <i class="fab fa-amazon"></i> <span data-lang-key="ctaButton">Ver na Amazon</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://via.placeholder.com/300x450/CCCCCC/FFFFFF?text=Capa+do+Livro" alt="Capa do livro Mindset" loading="lazy">
+                    <div class="book-info">
+                        <h4>Mindset</h4>
+                        <p class="author" data-lang-key="author">por Carol S. Dweck</p>
+                        <p class="description" data-lang-key="book2Desc">Descubra como nossa mentalidade molda nosso sucesso e como cultivar um mindset de crescimento.</p>
+                         <a href="SEU_LINK_DE_AFILIADO_AQUI" class="cta-button" target="_blank" rel="noopener sponsored">
+                            <i class="fab fa-amazon"></i> <span data-lang-key="ctaButton">Ver na Amazon</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://via.placeholder.com/300x450/CCCCCC/FFFFFF?text=Capa+do+Livro" alt="Capa do livro Sapiens" loading="lazy">
+                    <div class="book-info">
+                        <h4>Sapiens: Uma Breve História da Humanidade</h4>
+                        <p class="author" data-lang-key="author">por Yuval Noah Harari</p>
+                        <p class="description" data-lang-key="book3Desc">Uma fascinante narrativa sobre a jornada da nossa espécie, desde a Idade da Pedra até a era moderna.</p>
+                         <a href="SEU_LINK_DE_AFILIADO_AQUI" class="cta-button" target="_blank" rel="noopener sponsored">
+                            <i class="fab fa-amazon"></i> <span data-lang-key="ctaButton">Ver na Amazon</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <img src="https://via.placeholder.com/300x450/CCCCCC/FFFFFF?text=Capa+do+Livro" alt="Capa do livro A psicologia financeira" loading="lazy">
+                    <div class="book-info">
+                        <h4>A psicologia financeira</h4>
+                        <p class="author" data-lang-key="author">por Morgan Housel</p>
+                        <p class="description" data-lang-key="book4Desc">Lições atemporais sobre riqueza, ganância e felicidade, mostrando que o sucesso financeiro é menos sobre o que você sabe e mais sobre como você se comporta.</p>
+                         <a href="SEU_LINK_DE_AFILIADO_AQUI" class="cta-button" target="_blank" rel="noopener sponsored">
+                            <i class="fab fa-amazon"></i> <span data-lang-key="ctaButton">Ver na Amazon</span>
+                        </a>
+                    </div>
+                </article>
+                
+                </div>
+        </section>
+
+        <section class="adsense-block">
+            <div class="container">
+                <div class="ad-placeholder">
+                    <p>Espaço para Google AdSense (300x250 ou responsivo)</p>
+                    </div>
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <h3 class="section-title" data-lang-key="faqTitle">Perguntas Frequentes</h3>
+            <div class="faq-container">
+                <details>
+                    <summary data-lang-key="faqQ1">Como funciona este site?</summary>
+                    <p data-lang-key="faqA1">Nós selecionamos e recomendamos livros de alta qualidade. Ao clicar no botão "Ver na Amazon", você é redirecionado para a página do produto na Amazon. Se você comprar, recebemos uma pequena comissão, sem custo adicional para você.</p>
+                </details>
+                <details>
+                    <summary data-lang-key="faqQ2">O preço na Amazon é diferente se eu comprar por aqui?</summary>
+                    <p data-lang-key="faqA2">Não, o preço é exatamente o mesmo. Usar nossos links é uma forma de apoiar nosso trabalho de curadoria de conteúdo, sem que isso lhe custe nada a mais.</p>
+                </details>
+                <details>
+                    <summary data-lang-key="faqQ3">As recomendações são confiáveis?</summary>
+                    <p data-lang-key="faqA3">Sim. Nossa equipe se dedica a ler e analisar diversos títulos para recomendar apenas aqueles que realmente agregam valor, são bem avaliados e populares entre os leitores.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-lang-key="footerDisclaimer">Como Afiliado Amazon, eu recebo por compras qualificadas. Este site participa do Programa de Associados da Amazon Services LLC, um programa de publicidade de afiliados projetado para fornecer um meio para que os sites ganhem taxas de publicidade anunciando e vinculando à Amazon.</p>
+            <p>&copy; 2025 <span data-lang-key="logo">Leitura Essencial</span>. <span data-lang-key="footerRights">Todos os direitos reservados.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
 </html>
